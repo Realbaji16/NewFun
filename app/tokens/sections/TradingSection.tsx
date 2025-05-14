@@ -48,6 +48,7 @@ export const TradingSection = (): JSX.Element => {
               </TabsList>
             </Tabs>
           </div>
+          
 
           {/* Swap inputs */}
           <div className="flex flex-col items-center gap-4 mx-[13px] mt-[61px]">
