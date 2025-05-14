@@ -78,7 +78,7 @@ export default function FunOrgsToken() {
 
   return (
     <div className="bg-black w-full h-screen lg:overflow-hidden relative">
-      <Frame className="hidden md:block" />
+      <Frame className="hidden lg:block" />
 
       {/* Mobile Header */}
       <div className="lg:hidden flex justify-between p-4 bg-[#171717] sticky top-0 z-50">
@@ -143,30 +143,30 @@ export default function FunOrgsToken() {
       )}
 
       {/* Main content area */}
-      <div className="absolute left-0 md:left-[373px] top-[106px] bottom-[64px] overflow-y-auto hide-scrollbar right-0 md:right-[53px] px-4 md:px-0 pb-20">
+      <div className="absolute left-0 lg:left-[373px] top-[106px] bottom-[64px] overflow-y-auto hide-scrollbar right-0 lg:right-[53px] px-4 lg:px-0 pb-20">
         {/* Token profile and menu button container */}
-        <div className="flex justify-between items-start mb-4 md:mb-6">
+        <div className="flex justify-between items-start mb-4 lg:mb-6">
           {/* Token profile section */}
-          <div className="flex items-center gap-2 md:gap-4">
-            <div className="relative w-[45px] md:w-[85px] h-[44px] md:h-[82.99px] bg-[#ffffff] rounded-[93.7px] overflow-hidden">
+          <div className="flex items-center gap-2 lg:gap-4">
+            <div className="relative w-[45px] lg:w-[85px] h-[44px] lg:h-[82.99px] bg-[#ffffff] rounded-[93.7px] overflow-hidden">
               <img
-                className="absolute w-[33px] md:w-[63px] h-[34px] md:h-[65px] top-[5px] md:top-[9px] left-[6px] md:left-[11px] object-cover"
+                className="absolute w-[33px] lg:w-[63px] h-[34px] lg:h-[65px] top-[5px] lg:top-[9px] left-[6px] lg:left-[11px] object-cover"
                 alt="Token logo"
                 src="https://c.animaapp.com/mamw74gcIAFRo9/img/image-14.png"
               />
             </div>
-            <div className="flex flex-col items-start gap-0.5 md:gap-1.5">
-              <div className="self-stretch font-semibold text-white text-sm md:text-lg">
+            <div className="flex flex-col items-start gap-0.5 lg:gap-1.5">
+              <div className="self-stretch font-semibold text-white text-sm lg:text-lg">
                 Agent Jake ($AGJK)
               </div>
-              <div className="self-stretch font-semibold text-[#30EAF7] text-xl md:text-[30.3px]">
+              <div className="self-stretch font-semibold text-[#30EAF7] text-xl lg:text-[30.3px]">
                 $0.0206
               </div>
             </div>
           </div>
 
           {/* Menu button */}
-          <Button className="hidden md:flex items-center gap-1 h-auto py-[7px] px-[7px] bg-[#30EAF7] rounded-[40px] text-black-1">
+          <Button className="hidden lg:flex items-center gap-1 h-auto py-[7px] px-[7px] bg-[#30EAF7] rounded-[40px] text-black-1">
             <ArrowLeftIcon className="w-[18px] h-[18px]" />
             <span className="font-medium text-sm">Menu</span>
           </Button>
@@ -175,8 +175,8 @@ export default function FunOrgsToken() {
         {/* Bar section - hidden in community tab */}
         {activeTab !== 'community' && <BarByAnima />}
 
-        {/* Mobile Content */}
-        <div className="md:hidden">
+        {/* Mobile/Tablet Content */}
+        <div className="lg:hidden">
           {activeTab === 'info' && <DescriptionSection />}
           {activeTab === 'token' && (
             <>
@@ -192,7 +192,7 @@ export default function FunOrgsToken() {
         </div>
 
         {/* Desktop Content */}
-        <div className="hidden md:flex flex-row gap-6 mt-6 pb-8">
+        <div className="hidden lg:flex flex-row gap-6 mt-6 pb-8">
           {/* Left column */}
           <div className="flex flex-col gap-6 w-4/5">
             <div>
@@ -239,7 +239,7 @@ export default function FunOrgsToken() {
       </div>
 
       {/* Top navigation buttons */}
-      <div className="absolute top-8 right-8 hidden md:flex items-center gap-2">
+      <div className="absolute top-8 right-8 hidden lg:flex items-center gap-2">
         <Button
           variant="ghost"
           className="flex items-center gap-1 h-auto py-[7px] px-[7px] bg-[#ffffff1a] rounded-[40px] text-white"
@@ -281,8 +281,8 @@ export default function FunOrgsToken() {
         </Button>
       </div>
 
-      {/* Mobile Bottom Navigation */}
-      <div className="fixed bottom-0 left-0 right-0 bg-[#1C1C1C] md:hidden z-50">
+      {/* Mobile/Tablet Bottom Navigation */}
+      <div className="fixed bottom-0 left-0 right-0 bg-[#1C1C1C] lg:hidden z-50">
         <div className="flex justify-around items-center h-16">
           <button
             onClick={() => setActiveTab('info')}

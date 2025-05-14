@@ -12,7 +12,7 @@ export const DescriptionSection = (): JSX.Element => {
   return (
     <>
       {/* Mobile View */}
-      <div className="flex flex-col gap-4 text-white p-4 md:hidden">
+      <div className="flex flex-col gap-4 text-white p-4 lg:hidden">
         <div className="text-[#30EAF7] text-base font-medium">Description</div>
         
         <div className="text-[#7F7F7F] text-sm leading-tight">
@@ -37,13 +37,13 @@ export const DescriptionSection = (): JSX.Element => {
       </div>
 
       {/* Desktop View */}
-      <Card className="w-full h-[104px] bg-[#ffffff0d] rounded-[10px] my-4 overflow-hidden hidden md:block border-0">
-        <CardContent className="px-0 flex h-full">
+      <Card className="w-full h-[104px] bg-[#ffffff0d] rounded-[10px] my-4 overflow-hidden hidden lg:block border-0">
+        <CardContent className="px-0  flex h-full">
           <div className="flex flex-col p-3.5 w-[600px]">
-            <h4 className="font-bold text-[#30EAF7] text-[10px] mb-[5px]">
+            <h4 className="font-bold text-[#30EAF7] text-[12px] mb-[5px]">
               Description
             </h4>
-            <p className="font-normal text-[#7F7F7F] text-[10px]">{description}</p>
+            <p className="font-normal text-[#7F7F7F] text-[12px]">{description}</p>
           </div>
 
           <Separator orientation="vertical" className="h-[65px] my-2.5" />

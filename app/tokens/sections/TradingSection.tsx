@@ -126,12 +126,12 @@ export const TradingSection = (): JSX.Element => {
             </div>
 
             {/* Quick add buttons */}
-            <div className="inline-flex items-center gap-[7px]">
+            <div className="flex items-center gap-[7px] w-full">
               {quickAddAmounts.map((item, index) => (
                 <Button
                   key={index}
                   variant="outline"
-                  className="h-auto px-[11px] py-1.5 rounded-[10px] border-[#494949]"
+                  className="flex-1 h-auto px-[11px] py-1.5 rounded-[10px] border-[#494949] bg-transparent"
                 >
                   <span className="font-medium text-text-1 text-[10px]">
                     {item.label}
