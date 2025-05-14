@@ -1,5 +1,4 @@
 import React from "react";
-import { Card, CardContent } from "../../../../components/ui/card";
 
 export const BarByAnima = (): JSX.Element => {
   // Data for metric cards
@@ -8,80 +7,54 @@ export const BarByAnima = (): JSX.Element => {
     { label: "VOLUME", value: "$244.5k" },
   ];
 
-  // Data for social links
-  const socialLinks = [
-    {
-      icon: (
-        <div className="relative w-[27.92px] h-[27.92px] bg-[url(https://c.animaapp.com/mamw74gcIAFRo9/img/clip-path-group.png)] bg-[100%_100%]" />
-      ),
-      width: "46px",
-    },
-    {
-      icon: (
-        <img
-          className="w-[35.7px] h-[35.7px]"
-          alt="Telegram"
-          src="https://c.animaapp.com/mamw74gcIAFRo9/img/telegram.svg"
-        />
-      ),
-      width: "48px",
-    },
-    {
-      icon: (
-        <img
-          className="w-[35.7px] h-[35.7px]"
-          alt="Discord"
-          src="https://c.animaapp.com/mamw74gcIAFRo9/img/ic-baseline-discord.svg"
-        />
-      ),
-      width: "56.7px",
-    },
-    {
-      icon: (
-        <img
-          className="w-[26.83px] h-[26.83px]"
-          alt="Website"
-          src="https://c.animaapp.com/mamw74gcIAFRo9/img/streamline-web-solid.svg"
-        />
-      ),
-      width: "40.47px",
-    },
-  ];
-
   return (
-    <Card className="w-full h-[70px] bg-[#ffffff0d] border-none rounded-[20px] overflow-hidden">
-      <CardContent className="p-0">
-        <div className="flex items-center justify-between h-full px-5 py-3.5">
-          <div className="flex items-center gap-[7px]">
-            {metricCards.map((card, index) => (
-              <div
-                key={index}
-                className="flex flex-col w-[136px] h-[43px] items-center justify-center p-[7px] bg-[#ffffff1a] rounded-[40px] overflow-hidden"
-              >
-                <div className="flex flex-col items-center gap-px">
-                  <div className="[font-family:'Inter',Helvetica] font-medium text-[#30EAF7] text-[10px] whitespace-nowrap">
-                    {card.label}
-                  </div>
-                  <div className="[font-family:'Inter',Helvetica] font-medium text-white text-sm">
-                    {card.value}
-                  </div>
-                </div>
-              </div>
-            ))}
+    <div className="bg-[#171717] rounded-xl p-3 mb-8">
+      <div className="flex items-center justify-between">
+        {/* Left side - Metrics with separator */}
+        <div className="flex items-center">
+          {/* Market Cap */}
+          <div className="flex flex-col">
+            <div className="text-[#30EAF7] text-xs uppercase font-medium">
+              {metricCards[0].label}
+            </div>
+            <div className="text-white text-sm font-medium">
+              {metricCards[0].value}
+            </div>
           </div>
 
-          <div className="flex items-center justify-center">
-            {socialLinks.map((link, index) => (
-              <div
-                key={index}
-                className={`flex flex-col w-[${link.width}] items-center justify-center`}
-              >
-                {link.icon}
-              </div>
-            ))}
+          {/* Separator */}
+          <div className="h-6 w-[1px] bg-[#494949] mx-4"></div>
+
+          {/* Volume */}
+          <div className="flex flex-col">
+            <div className="text-[#30EAF7] text-xs uppercase font-medium">
+              {metricCards[1].label}
+            </div>
+            <div className="text-white text-sm font-medium">
+              {metricCards[1].value}
+            </div>
           </div>
         </div>
-      </CardContent>
-    </Card>
+
+        {/* Right side - Social Icons */}
+        <div className="flex items-center gap-3">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z" fill="white"/>
+          </svg>
+
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.944 2.002c-5.522 0-10 4.478-10 10 0 5.523 4.478 10 10 10 5.523 0 10-4.477 10-10 0-5.522-4.477-10-10-10zm3.091 14.423c-.223.447-.447.894-.67 1.342-.447.894-1.342 1.118-2.236.67-.67-.223-1.118-.67-1.565-1.118-1.118-1.118-2.236-2.236-3.354-3.354-.447-.447-.67-.894-.67-1.565 0-.67.223-1.118.67-1.565.224-.447.67-.67 1.118-.894.447-.223.894-.223 1.342 0 .447.224.67.67.894 1.118.223.447 0 .894-.224 1.342z" fill="white"/>
+          </svg>
+
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19.27 5.33C17.94 4.71 16.5 4.26 15 4a.09.09 0 0 0-.07.03c-.18.33-.39.76-.53 1.09a16.09 16.09 0 0 0-4.8 0c-.14-.34-.35-.76-.54-1.09-.01-.02-.04-.03-.07-.03-1.5.26-2.93.71-4.27 1.33-.01 0-.02.01-.03.02-2.72 4.07-3.47 8.03-3.1 11.95 0 .02.01.04.03.05 1.8 1.32 3.53 2.12 5.24 2.65.03.01.06 0 .07-.02.4-.55.76-1.13 1.07-1.74.02-.04 0-.08-.04-.09-.57-.22-1.11-.48-1.64-.78-.04-.02-.04-.08-.01-.11.11-.08.22-.17.33-.25.02-.02.05-.02.07-.01 3.44 1.57 7.15 1.57 10.55 0 .02-.01.05-.01.07.01.11.09.22.17.33.26.04.03.04.09-.01.11-.52.31-1.07.56-1.64.78-.04.01-.05.06-.04.09.32.61.68 1.19 1.07 1.74.03.01.06.02.09.01 1.72-.53 3.45-1.33 5.25-2.65.02-.01.03-.03.03-.05.44-4.53-.73-8.46-3.1-11.95-.01-.01-.02-.02-.04-.02zM8.52 14.91c-1.03 0-1.89-.95-1.89-2.12s.84-2.12 1.89-2.12c1.06 0 1.9.96 1.89 2.12 0 1.17-.84 2.12-1.89 2.12zm6.97 0c-1.03 0-1.89-.95-1.89-2.12s.84-2.12 1.89-2.12c1.06 0 1.9.96 1.89 2.12 0 1.17-.83 2.12-1.89 2.12z" fill="white"/>
+          </svg>
+
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="#30EAF7"/>
+          </svg>
+        </div>
+      </div>
+    </div>
   );
 };

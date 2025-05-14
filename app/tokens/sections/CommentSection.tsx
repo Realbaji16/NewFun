@@ -1,214 +1,209 @@
-import React from "react";
-import { Button } from "../../../components/ui/button";
-import { Card, CardContent } from "../../../components/ui/card";
-import { Input } from "../../../components/ui/input";
-import { Separator } from "../../../components/ui/seperator";
+import React from 'react';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "../../../components/ui/tab";
+import { TopHoldersSection } from './TopHoldersSection';
 
-// Message data for reusability
-const messages = [
-  {
-    id: 1,
-    sender: "VoS7rC",
-    content: "This is the funniest shit i ever seen this year lmao",
-    timestamp: "3/6/2025, 2:49:04 AM",
-    likes: 0,
-    avatar: {
-      type: "icon",
-      src: "https://c.animaapp.com/mamw74gcIAFRo9/img/solar-user-bold-duotone.svg",
-    },
-  },
-  {
-    id: 2,
-    sender: "VoS7rC",
-    content: "This is the funniest shit i ever seen this year lmao",
-    timestamp: "3/6/2025, 2:49:04 AM",
-    likes: 0,
-    avatar: {
-      type: "image",
-      src: "https://c.animaapp.com/mamw74gcIAFRo9/img/g5.png",
-    },
-  },
-  {
-    id: 3,
-    sender: "You",
-    content:
-      "Funny because we asked them to run a model vs model competition but they didnt want to",
-    timestamp: "3/6/2025, 2:49:04 AM",
-    likes: 0,
-    avatar: {
-      type: "image",
-      src: "https://c.animaapp.com/mamw74gcIAFRo9/img/frame-1597884349-1.svg",
-    },
-    isCurrentUser: true,
-  },
-];
+interface Comment {
+  id: number;
+  username: string;
+  content: string;
+  timestamp: string;
+  replies: number;
+  likes: number;
+}
 
-export const CommentsSection = (): JSX.Element => {
-  return (
-    <Card className="w-full h-[489px] bg-[#ffffff0d] rounded-[20px] overflow-hidden border-none">
-      <CardContent className="p-6 h-full flex flex-col">
-        <div className="flex-1 overflow-y-auto space-y-6">
-          {messages.map((message) =>
-            !message.isCurrentUser ? (
-              <div key={message.id} className="flex items-start gap-2">
-                <div className="flex-shrink-0 mt-[75px]">
-                  {message.avatar.type === "icon" ? (
-                    <div className="flex items-center justify-center w-4 h-4 bg-[#d9d9d9] rounded-lg p-px">
-                      <img
-                        className="w-2.5"
-                        alt="User avatar"
-                        src={message.avatar.src}
-                      />
-                    </div>
-                  ) : (
-                    <div
-                      className="flex items-center justify-center w-4 h-4 rounded-lg p-px"
-                      style={{
-                        background: `url(https://c.animaapp.com/mamw74gcIAFRo9/img/frame-1597884349.png) 50% 50% / cover, linear-gradient(0deg, rgba(217,217,217,1) 0%, rgba(217,217,217,1) 100%)`,
-                      }}
-                    >
-                      <div className="w-4 h-4 mt-[-1.00px] mb-[-1.00px] mr-[-11.00px] bg-[url(https://c.animaapp.com/mamw74gcIAFRo9/img/g5.png)] bg-[100%_100%]" />
-                    </div>
-                  )}
+export const CommentsSection = () => {
+  const comments: Comment[] = [
+    {
+      id: 1,
+      username: 'VinZhC',
+      content: 'This is the funniest shit i ever seen this year lmao',
+      timestamp: '26/12/23, 2:40:56 AM',
+      replies: 0,
+      likes: 0,
+    },
+    {
+      id: 2,
+      username: 'VinZhC',
+      content: 'This is the funniest shit i ever seen this year lmao',
+      timestamp: '26/12/23, 2:40:56 AM',
+      replies: 0,
+      likes: 0,
+    },
+    {
+      id: 3,
+      username: 'hey',
+      content: 'Funny because we asked them to run a model vs model competition but they didnt want to',
+      timestamp: '26/12/23, 2:40:56 AM',
+      replies: 0,
+      likes: 0,
+    }
+  ];
+
+  const holders = [
+    { id: 1, name: "MythMyth", percentage: "10.8%" },
+    { id: 2, name: "Kayan", percentage: "8.8%" },
+    { id: 3, name: "kkkki", percentage: "7.8%" },
+    { id: 4, name: "ttrgpo", percentage: "6.8%" },
+    { id: 5, name: "ttrgpo", percentage: "6.8%" },
+    { id: 6, name: "ttrgpo", percentage: "6.8%" },
+    { id: 7, name: "ttrgpo", percentage: "6.8%" },
+    { id: 8, name: "ttrgpo", percentage: "6.8%" },
+    { id: 9, name: "ttrgpo", percentage: "6.8%" },
+    { id: 10, name: "ttrgpo", percentage: "6.8%" },
+  ];
+
+  const CommentBubble = ({ comment }: { comment: Comment }) => (
+    <div className="bg-[#1E1E1E] rounded-[20px] p-4">
+      <div className="inline-flex items-center justify-center px-2 py-0.5 bg-black rounded-[10px] border border-[#494949]">
+        <span className="text-white text-[10px] font-medium">{comment.username}</span>
+      </div>
+      <p className="text-white text-[13px] mt-3 mb-3">{comment.content}</p>
+      <div className="flex items-center justify-between border-t border-[#494949] pt-3">
+        <span className="text-[#494949] text-[10px]">{comment.timestamp}</span>
+        <div className="flex items-center gap-2.5">
+          <button className="flex items-center gap-1">
+            <img
+              src="/reply.svg"
+              alt="Reply"
+              className="w-3.5 h-3.5"
+            />
+            <span className="text-white text-[10px]">Reply</span>
+          </button>
+          <button className="flex items-center gap-1">
+            <img
+              src="/like.svg"
+              alt="Like"
+              className="w-3 h-3"
+            />
+            <span className="text-white text-[10px]">{comment.likes}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+
+  const CommentsContent = () => (
+    <div className="space-y-4">
+      <div className="flex items-center">
+        <span className="text-xs text-[#30EAF7]">Newest</span>
+      </div>
+
+      <div className="space-y-4">
+        {comments.map((comment) => (
+          <CommentBubble key={comment.id} comment={comment} />
+        ))}
+      </div>
+
+      <div className="relative mt-4">
+        <div className="flex items-center gap-3 mb-4">
+          <button className="w-[27px] h-[27px]">
+            <img src="/attach.svg" alt="Attach" className="w-full h-full" />
+          </button>
+          <button className="w-[27px] h-[27px]">
+            <img src="/emoji.svg" alt="Emoji" className="w-full h-full" />
+          </button>
+        </div>
+        <div className="relative">
+          <input
+            type="text"
+            placeholder="Input text here..."
+            className="w-full h-[41px] bg-transparent border border-[#494949] rounded-[20px] pl-4 pr-20 text-[#494949] text-[10px] focus:outline-none"
+          />
+          <button className="absolute right-2 top-1/2 -translate-y-1/2 bg-[#30EAF7] rounded-full px-2 py-1 flex items-center gap-1">
+            <img src="/funsend.svg" alt="Send" className="w-3 h-3" />
+            <span className="text-black text-xs font-medium">Send</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+
+  // Mobile view with tabs
+  const MobileView = () => {
+    const [activeTab, setActiveTab] = React.useState('comments');
+
+    return (
+      <>
+        <div className="bg-[#171717] rounded-xl">
+          <Tabs defaultValue="comments" className="w-full" onValueChange={setActiveTab}>
+            <TabsList className="flex w-full p-2 bg-transparent gap-2">
+              <TabsTrigger 
+                value="comments"
+                className="flex-1 rounded-full bg-[#ffffff1a] text-white data-[state=active]:bg-[#ffffff1a] data-[state=active]:text-[#30EAF7] h-7 text-xs"
+              >
+                Comments
+              </TabsTrigger>
+              <TabsTrigger 
+                value="holder-distribution"
+                className="flex-1 rounded-full bg-[#ffffff1a] text-white data-[state=active]:bg-[#ffffff1a] data-[state=active]:text-[#30EAF7] h-7 text-xs"
+              >
+                Holder distribution
+              </TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="comments" className="p-4">
+              <div className="space-y-4">
+                <div className="flex items-center">
+                  <span className="text-xs text-[#30EAF7]">Newest</span>
                 </div>
 
-                <div className="w-[305px] bg-[#ffffff0d] rounded-[20px_20px_20px_0px] overflow-hidden p-5">
-                  <div className="flex w-[51px] items-center justify-center px-1 py-0.5 bg-black-1 rounded-[10px] overflow-hidden border border-solid border-[#494949]">
-                    <div className="mt-[-1.00px] font-medium text-white text-[8px]">
-                      {message.sender}
-                    </div>
-                  </div>
-
-                  <div className="mt-3 font-normal text-white text-[10px]">
-                    {message.content}
-                  </div>
-
-                  <Separator className="my-3 bg-white/10" />
-
-                  <div className="flex items-center justify-between">
-                    <div className="font-medium text-text-1 text-[8px]">
-                      {message.timestamp}
-                    </div>
-
-                    <div className="flex items-center gap-2.5">
-                      <div className="flex items-center gap-[3px]">
-                        <img
-                          className="w-3.5 h-3.5"
-                          alt="Reply"
-                          src="https://c.animaapp.com/mamw74gcIAFRo9/img/material-symbols-reply.svg"
-                        />
-                        <span className="font-normal text-white text-[10px] whitespace-nowrap">
-                          ReplyIcon
-                        </span>
-                      </div>
-
-                      <div className="flex items-center gap-[3px]">
-                        <img
-                          className="w-3 h-3"
-                          alt="Like"
-                          src="https://c.animaapp.com/mamw74gcIAFRo9/img/flat-color-icons-like.svg"
-                        />
-                        <span className="mt-[-1.00px] font-normal text-white text-[10px] whitespace-nowrap">
-                          {message.likes}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ) : (
-              <div key={message.id} className="flex justify-end">
-                <div className="flex items-start gap-2 w-[335px] h-[100px] rotate-180">
-                  <div className="flex-shrink-0">
-                    <div className="w-4 h-4 -top-px left-2.5 bg-[url(https://c.animaapp.com/mamw74gcIAFRo9/img/frame-1597884349-1.svg)] bg-cover bg-[50%_50%] rounded-lg" />
-                  </div>
-
-                  <div className="w-[305px] bg-[#0000003b] rounded-[20px_20px_20px_0px] overflow-hidden border border-solid border-[#ffffff1a] p-5">
-                    <div className="flex w-[51px] items-center justify-center px-1 py-0.5 bg-black-1 rounded-[10px] rotate-180 overflow-hidden border border-solid border-[#494949] ml-auto">
-                      <div className="mt-[-1.00px] font-medium text-white text-[8px]">
-                        {message.sender}
-                      </div>
-                    </div>
-
-                    <div className="mt-3 h-6">
-                      <img
-                        className="w-[268px] h-px -rotate-180 object-cover"
-                        alt="Line"
-                        src="https://c.animaapp.com/mamw74gcIAFRo9/img/line-28.svg"
-                      />
-                      <div className="w-[265px] rotate-180 font-normal text-white text-[10px]">
-                        {message.content}
-                      </div>
-                    </div>
-
-                    <div className="flex items-center justify-between mt-6 rotate-180">
-                      <div className="font-medium text-text-1 text-[8px]">
-                        {message.timestamp}
-                      </div>
-
-                      <div className="flex items-center gap-2.5">
-                        <div className="flex items-center gap-[3px]">
-                          <img
-                            className="w-3.5 h-3.5 rotate-[-360deg]"
-                            alt="Reply"
-                            src="https://c.animaapp.com/mamw74gcIAFRo9/img/material-symbols-reply.svg"
-                          />
-                          <span className="font-normal text-white text-[10px] whitespace-nowrap">
-                            ReplyIcon
-                          </span>
-                        </div>
-
-                        <div className="flex items-center gap-[3px]">
-                          <img
-                            className="w-3 h-3 rotate-[-360deg]"
-                            alt="Like"
-                            src="https://c.animaapp.com/mamw74gcIAFRo9/img/flat-color-icons-like.svg"
-                          />
-                          <span className="mt-[-1.00px] font-normal text-white text-[10px] whitespace-nowrap">
-                            {message.likes}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                <div className="space-y-4">
+                  {comments.map((comment) => (
+                    <CommentBubble key={comment.id} comment={comment} />
+                  ))}
                 </div>
               </div>
-            ),
-          )}
+            </TabsContent>
+
+            <TabsContent value="holder-distribution" className="p-4">
+              <TopHoldersSection />
+            </TabsContent>
+          </Tabs>
         </div>
 
-        <div className="mt-auto flex items-center gap-4">
-          <div className="flex items-center gap-[15px]">
-            <img
-              className="w-[27.27px] h-[27.27px]"
-              alt="Attach"
-              src="https://c.animaapp.com/mamw74gcIAFRo9/img/tdesign-attach.svg"
-            />
-            <div className="w-[27.27px] h-[27.27px]">
-              <img
-                className="w-[23px] h-[25px] mt-0.5 ml-0.5"
-                alt="Group"
-                src="https://c.animaapp.com/mamw74gcIAFRo9/img/group-4.png"
+        {/* Mobile Comment Input - Fixed at bottom, only shown in comments tab */}
+        {activeTab === 'comments' && (
+          <div className="fixed bottom-16 left-0 right-0 bg-black px-4 py-3 border-t border-[#494949] md:hidden">
+            <div className="relative flex items-center gap-2">
+              <div className="flex items-center gap-2">
+                <button className="w-[27px] h-[27px] flex items-center justify-center">
+                  <img src="/attach.svg" alt="Attach" className="w-5 h-5" />
+                </button>
+                <button className="w-[27px] h-[27px] flex items-center justify-center">
+                  <img src="/emoji.svg" alt="Emoji" className="w-5 h-5" />
+                </button>
+              </div>
+              <input
+                type="text"
+                placeholder="Input text here..."
+                className="flex-1 h-[41px] bg-transparent border border-[#494949] rounded-[20px] pl-4 pr-20 text-[#494949] text-[10px] focus:outline-none"
               />
+              <button className="absolute right-2 top-1/2 -translate-y-1/2 bg-[#30EAF7] rounded-full px-2 py-1 flex items-center gap-1">
+                <img src="/funsend.svg" alt="Send" className="w-3 h-3" />
+                <span className="text-black text-xs font-medium">Send</span>
+              </button>
             </div>
           </div>
+        )}
+      </>
+    );
+  };
 
-          <div className="flex-1 relative">
-            <Input
-              className="h-[41px] rounded-[20px] border-[#494949] pl-4 text-text-1 text-[10px]"
-              placeholder="Input text here..."
-            />
-            <Button className="absolute right-[7px] top-[7px] h-auto w-auto bg-blue-2-100 rounded-[36.13px] px-[5px] py-[6.32px] flex items-center gap-0.5">
-              <img
-                className="w-[13px] h-[13px]"
-                alt="Send"
-                src="https://c.animaapp.com/mamw74gcIAFRo9/img/mynaui-send-solid.svg"
-              />
-              <span className="font-medium text-black-1 text-xs">SendIcon</span>
-            </Button>
-          </div>
-        </div>
-      </CardContent>
-    </Card>
+  // Desktop view without tabs
+  const DesktopView = () => (
+    <div className="bg-[#171717] rounded-xl p-4">
+      <CommentsContent />
+    </div>
+  );
+
+  return (
+    <>
+      <div className="md:hidden">
+        <MobileView />
+      </div>
+      <div className="hidden md:block">
+        <DesktopView />
+      </div>
+    </>
   );
 };
