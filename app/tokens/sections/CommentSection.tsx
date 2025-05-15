@@ -130,37 +130,40 @@ export const CommentsSection = () => {
       <>
         <div className="p-[1px] rounded-[10px] bg-gradient-to-r from-[#00FFA3] to-[#DC1FFF]">
           <div className="bg-[#171717] rounded-[10px]">
-            // Example for your mobile tab triggers
-// Place this inside your mobile content section
+            <Tabs defaultValue="comments" className="w-full" onValueChange={setActiveTab}>
+              <TabsList className="flex w-full border-b border-[#1A1A1A]">
+                <TabsTrigger 
+                  value="comments"
+                  className="flex-1 px-6 py-2.5 text-[13px] font-medium text-[#7F7F7F] data-[state=active]:text-[#30EAF7] data-[state=active]:border-b-2 data-[state=active]:border-[#30EAF7] rounded-none bg-transparent"
+                >
+                  Comments
+                </TabsTrigger>
+                <TabsTrigger 
+                  value="holder-distribution"
+                  className="flex-1 px-6 py-2.5 text-[13px] font-medium text-[#7F7F7F] data-[state=active]:text-[#30EAF7] data-[state=active]:border-b-2 data-[state=active]:border-[#30EAF7] rounded-none bg-transparent"
+                >
+                  Holder distribution
+                </TabsTrigger>
+              </TabsList>
 
-<Tabs defaultValue="comments" className="w-full mt-4">
-  <TabsList className="flex bg-transparent p-0 h-auto mb-4">
-    <TabsTrigger
-      value="comments"
-      className="flex-1 h-9 rounded-full font-medium text-sm
-        data-[state=active]:bg-[#232323] data-[state=active]:text-[#30EAF7]
-        data-[state=inactive]:bg-transparent data-[state=inactive]:text-[#B0B0B0]
-        transition-colors"
-    >
-      Comments
-    </TabsTrigger>
-    <TabsTrigger
-      value="holders"
-      className="flex-1 h-9 rounded-full font-medium text-sm ml-2
-        data-[state=active]:bg-[#232323] data-[state=active]:text-[#30EAF7]
-        data-[state=inactive]:bg-transparent data-[state=inactive]:text-[#B0B0B0]
-        transition-colors"
-    >
-      Holder distribution
-    </TabsTrigger>
-  </TabsList>
-  <TabsContent value="comments">
-    <CommentsSection />
-  </TabsContent>
-  <TabsContent value="holders">
-    <TopHoldersSection />
-  </TabsContent>
-</Tabs>
+              <TabsContent value="comments" className="p-2.5">
+                <div className="space-y-4">
+                  <div className="flex items-center">
+                    <span className="text-[13px] text-[#30EAF7]">Newest</span>
+                  </div>
+
+                  <div className="space-y-4">
+                    {comments.map((comment) => (
+                      <CommentBubble key={comment.id} comment={comment} />
+                    ))}
+                  </div>
+                </div>
+              </TabsContent>
+
+              <TabsContent value="holder-distribution" className="p-2.5">
+                <TopHoldersSection />
+              </TabsContent>
+            </Tabs>
           </div>
         </div>
 

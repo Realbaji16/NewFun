@@ -1556,6 +1556,9 @@ video {
 .rounded-xl {
   border-radius: 0.75rem;
 }
+.rounded-none {
+  border-radius: 0px;
+}
 .border {
   border-width: 1px;
 }
@@ -2520,6 +2523,13 @@ video {
 }
 .data-\[state\=open\]\:animate-accordion-down[data-state="open"] {
   animation: accordion-down 0.2s ease-out;
+}
+.data-\[state\=active\]\:border-b-2[data-state="active"] {
+  border-bottom-width: 2px;
+}
+.data-\[state\=active\]\:border-\[\#30EAF7\][data-state="active"] {
+  --tw-border-opacity: 1;
+  border-color: rgb(48 234 247 / var(--tw-border-opacity, 1));
 }
 .data-\[state\=active\]\:bg-\[\#232323\][data-state="active"] {
   --tw-bg-opacity: 1;
