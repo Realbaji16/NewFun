@@ -90,8 +90,8 @@ export default function GroupWrapper() {
   return (
     <section className="flex flex-col w-full items-start gap-[18px] mb-8">
       <header className="flex items-center gap-2 mt-8">
-        <div className="w-8 h-[30px]  bg-[#ffffff17] rounded-[5px] overflow-hidden backdrop-blur-[17px] backdrop-brightness-[100%] flex items-center justify-center">
-          <div className="w-[18px] h-[18px] flex items-center justify-center ">
+        <div className="w-8 h-[30px] bg-[#ffffff17] rounded-[5px] backdrop-blur-[17px] backdrop-brightness-[100%] flex items-center justify-center border-[1px] border-transparent bg-clip-padding" style={{ backgroundImage: 'linear-gradient(#171717, #171717), linear-gradient(to right, #00FFA3, #DC1FFF)', backgroundOrigin: 'border-box', backgroundClip: 'padding-box, border-box' }}>
+          <div className="w-[18px] h-[18px] flex items-center justify-center">
             <img
               className="w-[15px] h-2.5"
               alt="Latest orgs icon"
@@ -103,7 +103,7 @@ export default function GroupWrapper() {
         <h2 className="font-semibold text-white text-lg">Latest orgs</h2>
       </header>
 
-      <div className="flex items-start gap-3.5 w-full overflow-x-auto pb-4">
+      <div className="flex items-start gap-3.5 w-full overflow-x-auto no-scrollbar pb-4">
         {organizations.map((org) => (
           <Card
             key={org.id}
@@ -139,7 +139,7 @@ export default function GroupWrapper() {
                         Vol: {org.volume}
                       </span>
                     </div>
-                    <div className="mt-2 font-normal text-green-1 text-xs">
+                    <div className="mt-2 font-normal text-[#00B200] text-xs">
                       {org.percentChange}
                     </div>
                   </div>

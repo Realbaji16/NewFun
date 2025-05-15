@@ -9,22 +9,16 @@ import { Card, CardContent } from "../../../../components/ui/card";
 export default function Frame({ className }: { className?: string }) {
   // Navigation items data with state
   const [navItems, setNavItems] = useState([
+
     {
       id: 1,
-      name: "Home",
-      icon: <LayoutDashboardIcon className="w-5 h-5" />,
+      name: "Advanced",
+      icon: <ChartBarIcon className="w-5 h-5" />,
       active: true,
       route: "/tasks",
     },
     {
       id: 2,
-      name: "Advanced",
-      icon: <ChartBarIcon className="w-5 h-5" />,
-      active: false,
-      route: "/leaderboard",
-    },
-    {
-      id: 3,
       name: "Fun Jobs",
       icon: <TrophyIcon className="w-5 h-5" />,
       active: false,
@@ -59,7 +53,7 @@ export default function Frame({ className }: { className?: string }) {
       <img
         className="w-[37px] h-8"
         alt="Logo icon"
-        src="./gslogo.svg"
+        src="/gslogo.svg"
       />
     </div>
     <h1 className="font-['Montserrat',Helvetica] font-semibold text-white text-[28.7px]">
@@ -69,7 +63,7 @@ export default function Frame({ className }: { className?: string }) {
   <img
     className="w-[34px] h-[34px] bg-[#ffffff1a] rounded-[5px]"
     alt="Menu icon"
-    src="./arr.svg"
+    src="/arr.svg"
   />
 </div>
 

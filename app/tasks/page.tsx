@@ -31,26 +31,9 @@ export default function FunOrgs() {
         /* Implement search functionality */
       },
     },
+
     {
       id: 2,
-      label: "Token",
-      icon: (
-        <div className="relative w-[18px] h-[18px]">
-          <img
-            className="absolute w-[15px] h-[15px] top-0.5 left-0.5"
-            alt="Token icon"
-            src="https://c.animaapp.com/maljt21j0sAixE/img/group-3.png"
-          />
-        </div>
-      ),
-      className: "w-[88px] bg-[#ffffff1a]",
-      textColor: "text-white",
-      onClick: () => {
-        /* Implement token functionality */
-      },
-    },
-    {
-      id: 3,
       label: "Create",
       icon: (
         <div className="relative w-[18px] h-[18px]">
@@ -63,6 +46,7 @@ export default function FunOrgs() {
       ),
       className: "w-[94px] bg-[#30EAF7]",
       textColor: "text-black-1",
+      href: "/fun-org/create",
     },
   ];
 
@@ -131,27 +115,49 @@ export default function FunOrgs() {
     </div>
   </div>
             )}
-            <div className=" hidden md:flex w-[90%] mb-24 items-center justify-between px-6">
-              <div className="font-semibold text-white text-lg">
-                Trending 🔥
+            <div className="hidden md:flex w-full overflow-x-auto pb-4 mb-24 px-6">
+              <div className="flex items-center gap-4 min-w-max">
+                <div className="font-semibold text-white text-base md:text-lg flex items-center gap-2 bg-[#494949] px-4 py-2 rounded-[10px] whitespace-nowrap">
+                  BUY: <span className="text-[#00FF00]">200 PTK</span> for <span>0.014 SOL</span>
+                  <span className="bg-[#0A0A0A] px-2 py-1 rounded text-xs md:text-sm ml-2">VoS7rC</span>
+                </div>
+                <div className="h-8 w-[1px] bg-[#333333]"></div>
+                <div className="flex items-center gap-2 text-white text-base md:text-lg bg-[#494949] px-4 py-2 rounded-[10px] whitespace-nowrap">
+                  <span className="bg-[#0A0A0A] px-2 py-1 rounded text-xs md:text-sm">Mindgge4</span>
+                  Created <span className="text-[#30EAF7]">$REGL</span>
+                </div>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="hidden md:flex items-center gap-2 ml-auto">
                 {actionButtons.map((button) => (
-                  <Button
-                    key={button.id}
-                    variant="ghost"
-                    className={`flex items-center justify-center gap-1 p-[7px] rounded-[40px] ${button.className}`}
-                    onClick={button.onClick}
-                  >
-                    {button.icon}
-                    <span className={`font-medium text-sm ${button.textColor}`}>
-                      {button.label}
-                    </span>
-                  </Button>
+                  button.href ? (
+                    <Link key={button.id} href={button.href}>
+                      <Button
+                        variant="ghost"
+                        className={`flex items-center justify-center gap-1 p-[7px] rounded-[40px] ${button.className}`}
+                      >
+                        {button.icon}
+                        <span className={`font-medium text-sm ${button.textColor}`}>
+                          {button.label}
+                        </span>
+                      </Button>
+                    </Link>
+                  ) : (
+                    <Button
+                      key={button.id}
+                      variant="ghost"
+                      className={`flex items-center justify-center gap-1 p-[7px] rounded-[40px] ${button.className}`}
+                      onClick={button.onClick}
+                    >
+                      {button.icon}
+                      <span className={`font-medium text-sm ${button.textColor}`}>
+                        {button.label}
+                      </span>
+                    </Button>
+                  )
                 ))}
                 <Button
                   variant="outline"
-                  className="w-[148px] h-auto p-[7px] bg-[#ffffff1a] rounded-[40px] border-[#494949]"
+                  className="hidden md:flex w-[148px] h-auto p-[7px] bg-[#ffffff1a] rounded-[40px] border-[#494949]"
                 >
                   <span className="font-medium text-white text-sm">
                     Connect Wallet
@@ -160,10 +166,25 @@ export default function FunOrgs() {
               </div>
             </div>
             <OverlapWrapperByAnima />
+            <div className="md:hidden mt-8 flex w-full overflow-x-auto pb-4  px-6">
+              <div className="flex items-center gap-4 min-w-max">
+                <div className="font-semibold text-white text-base md:text-lg flex items-center gap-2 bg-[#494949] px-4 py-2 rounded-[10px] whitespace-nowrap">
+                  BUY: <span className="text-[#00FF00]">200 PTK</span> for <span>0.014 SOL</span>
+                  <span className="bg-[#0A0A0A] px-2 py-1 rounded text-xs md:text-sm ml-2">VoS7rC</span>
+                </div>
+                <div className="h-8 w-[1px] bg-[#333333]"></div>
+                <div className="flex items-center gap-2 text-white text-base md:text-lg bg-[#494949] px-4 py-2 rounded-[10px] whitespace-nowrap">
+                  <span className="bg-[#0A0A0A] px-2 py-1 rounded text-xs md:text-sm">Mindgge4</span>
+                  Created <span className="text-[#30EAF7]">$REGL</span>
+                </div>
+              </div>
+
+            </div>
           </div>
           <div className="px-6 py-4">
             <Wrapper />
             <GroupWrapper />
+    
             <TopOrgs />
           </div>
         </div>

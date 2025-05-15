@@ -37,30 +37,30 @@ export const DescriptionSection = (): JSX.Element => {
       </div>
 
       {/* Desktop View */}
-      <Card className="w-full h-[104px] bg-[#ffffff0d] rounded-[10px] my-4 overflow-hidden hidden lg:block border-0">
+      <Card className="w-full h-fit bg-[#ffffff0d] rounded-[10px] my-4 overflow-hidden hidden lg:block border-0">
         <CardContent className="px-0  flex h-full">
           <div className="flex flex-col p-3.5 w-[600px]">
             <h4 className="font-bold text-[#30EAF7] text-[12px] mb-[5px]">
               Description
             </h4>
-            <p className="font-normal text-[#7F7F7F] text-[12px]">{description}</p>
+            <p className="font-normal text-[#7F7F7F] text-[14px]">{description}</p>
           </div>
 
-          <Separator orientation="vertical" className="h-[65px] my-2.5" />
+          <Separator orientation="vertical" className="h-[65px] bg-[#494949] mt-10" />
 
           <div className="flex flex-col ml-auto p-2.5 relative">
-            <div className="flex items-center bg-[#ffffff0d] rounded-[40px] h-[35px] w-[238px] overflow-hidden">
-              <span className="text-white text-xs ml-[21px]">
+            <div className="flex items-center bg-[#171717] rounded-[40px] h-[70px] w-[500px] overflow-hidden">
+              <span className="text-white text-base ml-[30px]">
                 {walletAddress}
               </span>
               <Button
-                className="ml-auto mr-1 h-[23px] rounded-[36.13px] bg-[#30EAF7] text-black text-xs font-medium px-[5px] py-[6.32px]"
+                className="ml-auto mr-4 h-[40px] w-[100px] rounded-[40px] bg-[#30EAF7] text-black text-sm font-medium"
                 size="sm"
               >
                 Copy
               </Button>
             </div>
-            <span className="text-white text-xs absolute bottom-3 right-3">
+            <span className="text-white text-sm absolute right-3 bottom-2">
               {timestamp}
             </span>
           </div>

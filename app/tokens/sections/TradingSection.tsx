@@ -30,20 +30,20 @@ export const TradingSection = (): JSX.Element => {
       <Card className="w-full h-100 bg-[#ffffff0d] mt-4 lg:mt-0 rounded-[20px] border-[#494949]">
         <CardContent className="p-0">
           {/* Buy/Sell tabs */}
-          <div className="flex justify-center items-center gap-[35px] mt-[23px]">
-            <Tabs defaultValue="buy" className="w-full max-w-[240px]">
-              <TabsList className="bg-transparent p-0 h-auto">
+          <div className="flex justify-center items-center mt-[23px]">
+            <Tabs defaultValue="buy" className="w-full max-w-[400px] px-4">
+              <TabsList className="bg-transparent p-0 h-auto w-full flex gap-2">
                 <TabsTrigger
                   value="buy"
-                  className="w-[115px] h-7 bg-[#ffffff1a] rounded-[40px] data-[state=active]:bg-[#ffffff1a] data-[state=active]:text-[#30EAF7]"
+                  className="flex-1 h-7 rounded-[40px] data-[state=active]:bg-[#ffffff1a] data-[state=active]:text-[#30EAF7]"
                 >
-                  <span className="font-medium text-[10px]">Buy</span>
+                  <span className="font-medium text-[12px]">Buy</span>
                 </TabsTrigger>
                 <TabsTrigger
                   value="sell"
-                  className="w-[115px] h-7 bg-[#ffffff1a] rounded-[40px] data-[state=active]:bg-[#ffffff1a] data-[state=active]:text-[#30EAF7]"
+                  className="flex-1 h-7 rounded-[40px] data-[state=active]:bg-[#ffffff1a] data-[state=active]:text-[#30EAF7]"
                 >
-                  <span className="font-medium text-[10px]">Sell</span>
+                  <span className="font-medium text-[12px]">Sell</span>
                 </TabsTrigger>
               </TabsList>
             </Tabs>
@@ -51,18 +51,18 @@ export const TradingSection = (): JSX.Element => {
           
 
           {/* Swap inputs */}
-          <div className="flex flex-col items-center gap-4 mx-[13px] mt-[61px]">
+          <div className="flex flex-col items-center gap-4 mx-4 mt-[61px]">
             <div className="relative self-stretch w-full h-[136px]">
               {/* From token input */}
-              <div className="absolute w-[100%] h-[62px] top-0 left-0 bg-[#ffffff0d] rounded-[10px] overflow-hidden">
+              <div className="absolute w-full h-[62px] top-0 left-0 bg-[#ffffff0d] rounded-[10px] overflow-hidden">
                 <Input
                   defaultValue="0.0"
-                  className="absolute top-[13px] left-[18px] w-[100px] h-6 bg-transparent border-0 p-0 text-white text-base font-medium focus-visible:ring-0 focus-visible:ring-offset-0"
+                  className="absolute top-[13px] left-[18px] w-[calc(100%-100px)] h-6 bg-transparent border-0 p-0 text-white text-base font-medium focus-visible:ring-0 focus-visible:ring-offset-0"
                 />
 
                 <div className="inline-flex items-center gap-[3px] absolute top-10 left-[19px]">
                   <img
-                    className="w-[9px] h-[9px]"
+                    className="w-[9px] h-[9px] rounded-full overflow-hidden"
                     alt="Wallet icon"
                     src="https://c.animaapp.com/mamw74gcIAFRo9/img/si-wallet-fill.svg"
                   />
@@ -84,15 +84,15 @@ export const TradingSection = (): JSX.Element => {
               </div>
 
               {/* To token input */}
-              <div className="absolute w-[100%] h-[62px] top-[74px] left-0 bg-[#ffffff0d] rounded-[10px] overflow-hidden">
+              <div className="absolute w-full h-[62px] top-[74px] left-0 bg-[#ffffff0d] rounded-[10px] overflow-hidden">
                 <Input
                   defaultValue="0.0"
-                  className="absolute top-[13px] left-[18px] ] h-6 bg-transparent border-0 p-0 text-white text-base font-medium focus-visible:ring-0 focus-visible:ring-offset-0"
+                  className="absolute top-[13px] left-[18px] w-[calc(100%-100px)] h-6 bg-transparent border-0 p-0 text-white text-base font-medium focus-visible:ring-0 focus-visible:ring-offset-0"
                 />
 
                 <div className="inline-flex items-center gap-[3px] absolute top-10 left-[19px]">
                   <img
-                    className="w-[9px] h-[9px]"
+                    className="w-[9px] h-[9px] rounded-full overflow-hidden"
                     alt="Wallet icon"
                     src="https://c.animaapp.com/mamw74gcIAFRo9/img/si-wallet-fill.svg"
                   />
@@ -116,7 +116,7 @@ export const TradingSection = (): JSX.Element => {
               {/* Swap button */}
               <Button
                 variant="outline"
-                className="absolute w-9 h-9 top-[47px] left-[45%] bg-black-2 rounded-[18px] border-[#494949] p-0"
+                className="absolute w-9 h-9 top-[47px] left-[calc(50%-18px)] bg-black-2 rounded-[18px] border-[#494949] p-0"
               >
                 <img
                   className="w-6 h-6"
@@ -127,14 +127,14 @@ export const TradingSection = (): JSX.Element => {
             </div>
 
             {/* Quick add buttons */}
-            <div className="flex items-center gap-[7px] w-full">
+            <div className="flex items-center gap-2 w-full">
               {quickAddAmounts.map((item, index) => (
                 <Button
                   key={index}
                   variant="outline"
-                  className="flex-1 h-auto px-[11px] py-1.5 rounded-[10px] border-[#494949] bg-transparent"
+                  className="flex-1 h-auto px-2 py-1.5 rounded-[10px] border-[#494949] bg-transparent"
                 >
-                  <span className="font-medium text-text-1 text-[10px]">
+                  <span className="font-medium text-text-1 text-[10px] whitespace-nowrap">
                     {item.label}
                   </span>
                 </Button>

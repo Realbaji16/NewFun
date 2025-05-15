@@ -94,12 +94,12 @@ export default function TopOrgs() {
   return (
     <section className="flex flex-col w-full  items-start gap-[18px] mx-auto">
       <div className="flex items-center gap-2">
-        <div className="w-8 h-[30px] bg-[#ffffff17] rounded-[5px] overflow-hidden border-none backdrop-blur-[17px] flex items-center justify-center">
+      <div className="w-8 h-[30px] bg-[#ffffff17] rounded-[5px] backdrop-blur-[17px] backdrop-brightness-[100%] flex items-center justify-center border-[1px] border-transparent bg-clip-padding" style={{ backgroundImage: 'linear-gradient(#171717, #171717), linear-gradient(to right, #00FFA3, #DC1FFF)', backgroundOrigin: 'border-box', backgroundClip: 'padding-box, border-box' }}>
           <div className="w-[18px] h-[18px] flex items-center justify-center">
             <img
               className="w-[15px] h-2.5"
-              alt="Top orgs icon"
-              src="https://c.animaapp.com/maljt21j0sAixE/img/group-6.png"
+              alt="Latest orgs icon"
+              src="https://c.animaapp.com/maljt21j0sAixE/img/group-5.png"
             />
           </div>
         </div>
@@ -111,38 +111,54 @@ export default function TopOrgs() {
         {organizations.map((org) => (
           <Card
             key={org.id}
-            className="w-[186px] h-[257px] rounded-[20px] overflow-hidden border-none bg-transparent flex-shrink-0 cursor-pointer hover:opacity-80 transition-opacity"
-           
+            className={`w-[186px] h-[257px] rounded-[20px] overflow-hidden border-none ${
+              org.name === "Agent Jake" ? "bg-[#6C5DD3]" : "bg-transparent"
+            } flex-shrink-0 cursor-pointer hover:opacity-80 transition-opacity`}
           >
             <CardContent className="p-0">
               <div className="w-[171px] h-[239px] mx-auto mt-1.5">
                 <div
-                  className={`w-[171px] h-[124px] rounded-[20px] overflow-hidden ${org.whiteBackground ? "bg-white" : "bg-[#ca6868]"}`}
+                  className={`w-[171px] h-[124px] rounded-[20px] overflow-hidden ${
+                    org.name === "Agent Jake" 
+                    ? "bg-white p-2" 
+                    : org.whiteBackground ? "bg-white" : "bg-[#ca6868]"
+                  }`}
                 >
                   <img
-                    className={`w-full h-full object-cover ${org.centerImage ? "w-[115px] h-[119px] mx-auto mt-[3px]" : ""}`}
+                    className={`w-full h-full object-contain ${org.centerImage ? "w-[115px] h-[119px] mx-auto mt-[3px]" : ""}`}
                     alt={`${org.name} image`}
                     src={org.image}
                   />
+                  {org.name === "Agent Jake" && (
+                    <div className="absolute top-2 right-2">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 2L12.2451 6.90983L17.5 7.45492L13.75 11.1302L14.4901 16.5L10 13.95L5.50993 16.5L6.25 11.1302L2.5 7.45492L7.75485 6.90983L10 2Z" fill="#FFD700"/>
+                      </svg>
+                    </div>
+                  )}
                 </div>
 
                 <div className="flex flex-col w-[164px] items-start gap-[9px] mt-[11px] mx-auto">
                   <div className="flex items-center gap-[27px] w-full">
-                    <div className="font-semibold text-white text-base whitespace-nowrap">
+                    <h3 className={`font-semibold text-white text-base whitespace-nowrap ${
+                      org.name === "Agent Jake" ? "text-md" : ""
+                    }`}>
                       {org.name} ({org.ticker})
-                    </div>
+                    </h3>
                   </div>
 
-                  <div className="w-full h-[51px] bg-[#ffffff1a] rounded-[10px] overflow-hidden p-[9px] relative">
+                  <div className={`w-full h-[51px] rounded-[10px] overflow-hidden p-[9px_5px] ${
+                    org.name === "Agent Jake" ? "bg-[#5B4EB8]" : "bg-[#ffffff1a]"
+                  }`}>
                     <div className="flex items-center justify-between w-full">
-                      <div className="text-white text-xs">
+                      <span className="font-normal text-white text-xs">
                         MC : {org.marketCap}
-                      </div>
-                      <div className="text-white text-xs">
+                      </span>
+                      <span className="font-normal text-white text-xs">
                         Vol: {org.volume}
-                      </div>
+                      </span>
                     </div>
-                    <div className="text-green-1 text-xs mt-2">
+                    <div className="mt-2 font-normal text-[#00B200] text-xs">
                       {org.percentChange}
                     </div>
                   </div>
@@ -150,11 +166,15 @@ export default function TopOrgs() {
                   <div className="flex items-center gap-6">
                     <div className="flex items-end gap-1">
                       <MessageSquareIcon className="w-4 h-4 text-white" />
-                      <div className="text-white text-xs">{org.messages}</div>
+                      <span className="font-normal text-white text-xs">
+                        {org.messages}
+                      </span>
                     </div>
                     <div className="flex items-end gap-1">
                       <ClockIcon className="w-4 h-4 text-white" />
-                      <div className="text-white text-xs">{org.timeAgo}</div>
+                      <span className="font-normal text-white text-xs">
+                        {org.timeAgo}
+                      </span>
                     </div>
                   </div>
                 </div>

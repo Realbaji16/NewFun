@@ -21,6 +21,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { PriceChart } from "./sections/Chart/PriceChart";
 import { generateMockPriceData } from "./services/priceData";
+import { TradesSection } from "./sections/TradesSection";
 
 export default function FunOrgsToken() {
   const pathname = usePathname();
@@ -63,6 +64,7 @@ export default function FunOrgsToken() {
           <>
             <PriceChart data={priceData} />
             <TradingSection />
+            
           </>
         );
       case 'community':
@@ -146,21 +148,21 @@ export default function FunOrgsToken() {
       <div className="absolute left-0 lg:left-[373px] top-[106px] bottom-[64px] overflow-y-auto hide-scrollbar right-0 lg:right-[53px] px-4 lg:px-0 pb-20">
         {/* Token profile and menu button container */}
         <div className="flex justify-between items-start mb-4 lg:mb-6">
-          {/* Token profile section */}
+        {/* Token profile section */}
           <div className="flex items-center gap-2 lg:gap-4">
             <div className="relative w-[45px] lg:w-[85px] h-[44px] lg:h-[82.99px] bg-[#ffffff] rounded-[93.7px] overflow-hidden">
-              <img
+            <img
                 className="absolute w-[33px] lg:w-[63px] h-[34px] lg:h-[65px] top-[5px] lg:top-[9px] left-[6px] lg:left-[11px] object-cover"
-                alt="Token logo"
-                src="https://c.animaapp.com/mamw74gcIAFRo9/img/image-14.png"
-              />
-            </div>
+              alt="Token logo"
+              src="https://c.animaapp.com/mamw74gcIAFRo9/img/image-14.png"
+            />
+          </div>
             <div className="flex flex-col items-start gap-0.5 lg:gap-1.5">
               <div className="self-stretch font-semibold text-white text-sm lg:text-lg">
-                Agent Jake ($AGJK)
-              </div>
+              Agent Jake ($AGJK)
+            </div>
               <div className="self-stretch font-semibold text-[#30EAF7] text-xl lg:text-[30.3px]">
-                $0.0206
+              $0.0206
               </div>
             </div>
           </div>
@@ -182,6 +184,7 @@ export default function FunOrgsToken() {
             <>
               <PriceChart data={priceData} />
               <TradingSection />
+              <TradesSection />
             </>
           )}
           {activeTab === 'community' && (
@@ -221,6 +224,7 @@ export default function FunOrgsToken() {
                 </TabsContent>
                 <TabsContent value="trades">
                   {/* Add trades content here */}
+                   <TradesSection />
                 </TabsContent>
               </Tabs>
             </div>
@@ -262,6 +266,7 @@ export default function FunOrgsToken() {
           <span className="font-medium text-sm">Token</span>
         </Button>
 
+        <Link href="/fun-org/create">
         <Button className="flex items-center gap-1 h-auto py-[7px] px-[7px] bg-[#30EAF7] rounded-[40px] text-black-1">
           <div className="w-[18px] h-[18px] relative">
             <img
@@ -272,6 +277,7 @@ export default function FunOrgsToken() {
           </div>
           <span className="font-medium text-sm">Create</span>
         </Button>
+        </Link>
 
         <Button
           variant="outline"

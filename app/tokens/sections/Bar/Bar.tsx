@@ -16,10 +16,10 @@ export const BarByAnima = (): JSX.Element => {
           <div className="flex flex-col">
             <div className="text-[#30EAF7] text-xs uppercase font-medium">
               {metricCards[0].label}
-            </div>
+                  </div>
             <div className="text-white text-sm font-medium">
               {metricCards[0].value}
-            </div>
+              </div>
           </div>
 
           {/* Separator */}
@@ -32,7 +32,7 @@ export const BarByAnima = (): JSX.Element => {
             </div>
             <div className="text-white text-sm font-medium">
               {metricCards[1].value}
-            </div>
+              </div>
           </div>
         </div>
 
